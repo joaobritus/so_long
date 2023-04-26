@@ -6,7 +6,7 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 17:11:57 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/04/17 17:11:58 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/04/26 14:44:57 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,18 @@
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
+# include <stdio.h>
 # include "../libft_new/libft.h"
+
+typedef struct size
+{
+	int	x;
+	int	y;
+}			t_size;
+
+/*main.c*/
+char	**treatment(char *argv, t_size *size);
+t_size	map_size(int fd);
+void	free_map(char **map);
 
 #endif
