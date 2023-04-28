@@ -6,7 +6,7 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 17:11:00 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/04/26 16:18:01 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/04/28 18:00:42 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,8 @@ int	render(t_data *data)
 
 char	**treatment(char *argv, t_size *size)
 {
-	int			i;
+	int			y;
+	int			x;
 	int			fd;
 	char		**map;
 
@@ -142,11 +143,12 @@ char	**treatment(char *argv, t_size *size)
 		perror("malloc fucked up");
 		return (0);
 	}
-	i = -1;
 	close(fd);
 	fd = open(argv, O_RDONLY); //isto precisa de ser fechado?
-	while (++i < size->y)
-		map[i] = get_next_line(fd);
+	y = -1;
+	x = 0;
+	while (++y < size->y)
+		map[y] = get_next_line(fd);
 	map[i] = 0;
 	return (map);
 }
@@ -185,16 +187,18 @@ int	main(int argc, char **argv)
 	char	**map;
 	int		i;
 	t_size	size;
+	t_size	player;
 
 	if (argc != 2)
 		return (1);
-	i = 0;
+	i = -1;
 	map = treatment(argv[1], &size); //isto precisa de ser alocado?
-	while (i < size.y)
-	{
+	if (!map)
+		return (0);
+	if (!map_valid(map, size, &player))
+		return (1);
+	while (++i < size.y)
 		printf("%s", map[i]);
-		i++;
-	}
 	free_map(map);
 	return (0);
 }
