@@ -6,7 +6,7 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 17:11:00 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/04/28 18:00:42 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/05/06 14:52:25 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,32 +23,7 @@
 #define GREEN_PIXEL 0xFF00
 #define WHITE_PIXEL 0xFFFFFF
 
-/* typedef struct s_img
-{
-	void	*mlx_img;
-	char	*addr;
-	int		bpp;
-	int		line_len;
-	int		endian;
-}			t_img;
-
-typedef struct s_data
-{
-	void	*mlx_ptr;
-	void	*win_ptr;
-	t_img	img;
-	int		cur_img;
-}			t_data;
-
-typedef struct s_rect
-{
-	int		x;
-	int		y;
-	int		width;
-	int		height;
-	int		color;
-}			t_rect;
-
+ /*
 void	img_pix_put(t_img *img, int x, int y, int color)
 {
 	char	*pixel;
@@ -149,7 +124,7 @@ char	**treatment(char *argv, t_size *size)
 	x = 0;
 	while (++y < size->y)
 		map[y] = get_next_line(fd);
-	map[i] = 0;
+	map[y] = 0;
 	return (map);
 }
 
@@ -204,7 +179,7 @@ int	main(int argc, char **argv)
 }
 
 
-/* int	main(void)
+ /*int	main(void)
 {
 	t_data	data;
 

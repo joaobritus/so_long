@@ -4,7 +4,7 @@ LIBFT_DIR =		../libft_new
 LIBFT =			../libft_new/libft.a
 LIBMLX_DIR =	./mlx_linux
 MLX_INCLUDE = 	-Imlx_linux
-SRC =			main.c
+SRC =			main.c maps.c count_stuff.c
 SRC_OBJS =		$(SRC:.c=.o)
 CC = 			@cc
 CFLAGS = 		-Wall -Wextra -Werror -g

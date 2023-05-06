@@ -6,7 +6,7 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 17:31:00 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/04/28 18:24:12 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/05/06 14:53:04 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,15 @@ void	get_the_player(char **map, t_size size, t_size *player)
 		{
 			if (map[y][x] == 'P')
 			{
-				*player.y == y;
-				*player.x == x;
+				player->y = y;
+				player->x = x;
 			}
 		}
 	}
 }
 
 
-
+/*
 int	flood_fill(char **map, t_size size, t_size player)
 {
 	if ((map[player.x][player.y] != '0' && map[player.x][player.y] != 'C'
@@ -51,11 +51,11 @@ int	flood_fill(char **map, t_size size, t_size player)
 		map[player.x][player.y] = 'c';
 	if (map[player.x][player.y] == '0')
 		map[player.x][player.y] = 'o';
-	check_path(map, size, (t_coord){player.x + 1, player.y});
-	check_path(map, size, (t_coord){player.x - 1, player.y});
-	check_path(map, size, (t_coord){player.x, player.y + 1});
-	check_path(map, size, (t_coord){player.x, player.y - 1});
-}
+	flood_fill(map, size, (t_size){player.x + 1, player.y});
+	flood_fill(map, size, (t_size){player.x - 1, player.y});
+	flood_fill(map, size, (t_size){player.x, player.y + 1});
+	flood_fill(map, size, (t_size){player.x, player.y - 1});
+}*/
 
 int	walls(char **map, t_size size)
 {
@@ -83,7 +83,7 @@ int	walls(char **map, t_size size)
 	return (1);
 }
 
-int	is_it_a_square(t_size size)
+int	is_it_a_square(char **map, t_size size)
 {
 	int	y;
 
@@ -98,12 +98,13 @@ int	is_it_a_square(t_size size)
 
 int	map_valid(char **map, t_size size, t_size *player)
 {
-	if ((player_number(map, size) != 1) || (exit_number(map, size) != 1)
-		|| (collectible_number(map, size) < 1) || (!is_it_a_square(size))
-		|| (!walls(map, size)))
+	get_the_player(map, size, player);
+	if ((exit_number(map, size) != 1))
 		return (0);
-	get_the_player(map, size, &player);
-	if (!flood_fill(map, size, player))
+	if ((player_number(map, size) != 1))
+		return (0);
+	if ((collectible_number(map, size) < 1) || (!is_it_a_square(map, size))
+		|| (!walls(map, size))) //|| (!flood_fill(map, size, player)))
 		return (0);
 	return (1);
 }
