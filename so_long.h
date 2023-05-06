@@ -6,7 +6,7 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 17:11:57 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/05/06 14:36:13 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/05/06 16:53:24 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,11 @@ typedef struct s_rect
 	int		height;
 	int		color;
 }			t_rect;
+
+typedef struct s_sprites
+{
+	void		*wall;
+}				t_sprites;
 
 /*main.c*/
 char	**treatment(char *argv, t_size *size);
