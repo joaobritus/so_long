@@ -6,7 +6,7 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 17:11:00 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/05/06 16:34:40 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/05/08 16:43:29 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ char	**treatment(char *argv, t_size *size)
 		return (0);
 	}
 	close(fd);
-	fd = open(argv, O_RDONLY); //isto precisa de ser fechado?
+	fd = open(argv, O_RDONLY);
 	y = -1;
 	x = 0;
 	while (++y < size->y)
@@ -135,15 +135,15 @@ t_size	map_size(int fd)
 
 	i.x = 0;
 	i.y = 0;
-	while (read(fd, &buffer, 1) > 0) //isto pode ser utilizado pq utilizamos open no treatment?
+	while (read(fd, &buffer, 1) > 0)
 	{
 		if (i.y == 0 && buffer != '\n')
 			i.x++;
 		if (buffer == '\n')
 			i.y++;
 	}
-	if (read(fd, &buffer, 1) == -1) // se da -1 uma vez, da o mesmo resultado nas vezes seguintes?
-		return ((t_size){0, 0}); //isto nao estava inicializado a zeros no inicio?
+	if (read(fd, &buffer, 1) == -1)
+		return ((t_size){0, 0});
 	return (i);
 }
 
@@ -167,7 +167,7 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 		return (1);
 	i = -1;
-	map = treatment(argv[1], &size); //isto precisa de ser alocado?
+	map = treatment(argv[1], &size);
 	if (!map)
 		return (0);
 	if (!map_valid(map, size, &player))
