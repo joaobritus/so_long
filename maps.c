@@ -6,7 +6,7 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 17:31:00 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/05/08 16:25:07 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/05/08 17:24:31 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ int	map_valid(char **map, t_size size, t_size *player)
 	if ((player_number(map, size) != 1))
 		return (0);
 	if ((collectible_number(map, size) < 1) || (!is_it_a_square(map, size))
-		|| (!walls(map, size))) /* || (!flood_fill(map, size, player)) */
+		|| (!walls(map, size))) // || (!flood_fill(map, size, player)) 
 		return (0);
 	return (1);
 }

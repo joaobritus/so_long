@@ -6,7 +6,7 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 17:11:57 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/05/08 17:06:06 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/05/08 18:02:50 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,22 @@
 # include <sys/stat.h>
 # include <sys/types.h>
 # include <unistd.h>
+# include <X11/keysym.h>
 
 typedef struct size
 {
 	int			x;
 	int			y;
 }				t_size;
+
+typedef struct s_sprites
+{
+	void		*wall;
+	void		*floor;
+	void		*player;
+	void		*collectible;
+	void		*exit1;
+}				t_sprites;
 
 typedef struct s_img
 {
@@ -43,7 +53,9 @@ typedef struct s_data
 	void		*win_ptr;
 	t_img		img;
 	t_sprites	*images;
-	int			cur_img;
+	char		**map;
+	t_coord		size;
+	t_coord		pos;
 }				t_data;
 
 typedef struct s_rect
@@ -54,15 +66,6 @@ typedef struct s_rect
 	int			height;
 	int			color;
 }				t_rect;
-
-typedef struct s_sprites
-{
-	void		*wall;
-	void		*floor;
-	void		*player;
-	void		*collectible;
-	void		*exit1;
-}				t_sprites;
 
 # define P 72
 

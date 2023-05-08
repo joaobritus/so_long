@@ -6,7 +6,7 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 16:41:12 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/05/08 17:05:23 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/05/08 17:47:31 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,43 @@ int	open_images(t_data *data)
 			"./images/exit1.xpm", &s, &s);
 	image->player = mlx_xpm_file_to_image(data->mlx_ptr,
 			"./images/player.xpm", &s, &s);
+	image->player = mlx_xpm_file_to_image(data->mlx_ptr,
+			"./images/collectible.xpm", &s, &s);
 	data->images = image;
 	return (1);
+}
+
+void	choose_image(t_data *data, t_size pos, char **map)
+{
+	if (map[pos.x][pos.y] == '0')
+		mlx_put_image_to_win_ptr(data->mlx_ptr, data->win_ptr,
+			data->images->floor, pos.y * P, pos.x * P);
+	else if (map[pos.x][pos.y] == '1')
+		mlx_put_image_to_win_ptr(data->mlx_ptr, data->win_ptr,
+			data->images->wall, pos.y * P, pos.x * P);
+	else if (map[pos.x][pos.y] == 'P')
+		mlx_put_image_to_win_ptr(data->mlx_ptr, data->win_ptr,
+			data->images->player, pos.y * P, pos.x * P);
+	else if (map[pos.x][pos.y] == 'E')
+		mlx_put_image_to_win_ptr(data->mlx_ptr, data->win_ptr,
+			data->images->exit1, pos.y * P, pos.x * P);
+	else if (map[pos.x][pos.y] == 'C')
+		mlx_put_image_to_win_ptr(data->mlx_ptr, data->win_ptr,
+			data->images->collectible, pos.y * P, pos.x * P);
+	return ;
+}
+
+void	draw(t_data *data, char **map)
+{
+	int	x;
+	int	y;
+
+	x = -1;
+	while (map[++x])
+	{
+		y = -1;
+		while (map[x][++y])
+			choose_image(data, (t_size){x, y}, map);
+	}
+	return ;
 }

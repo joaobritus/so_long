@@ -6,7 +6,7 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 17:11:00 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/05/08 16:43:29 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/05/08 17:25:12 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,9 +169,9 @@ int	main(int argc, char **argv)
 	i = -1;
 	map = treatment(argv[1], &size);
 	if (!map)
-		return (0);
+		return (2);
 	if (!map_valid(map, size, &player))
-		return (1);
+		return (99);
 	while (++i < size.y)
 		printf("%s", map[i]);
 	free_map(map);
