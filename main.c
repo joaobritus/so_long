@@ -6,7 +6,7 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 17:11:00 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/05/08 17:25:12 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/05/10 10:22:34 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,35 +128,6 @@ char	**treatment(char *argv, t_size *size)
 	return (map);
 }
 
-t_size	map_size(int fd)
-{
-	char	buffer;
-	t_size	i;
-
-	i.x = 0;
-	i.y = 0;
-	while (read(fd, &buffer, 1) > 0)
-	{
-		if (i.y == 0 && buffer != '\n')
-			i.x++;
-		if (buffer == '\n')
-			i.y++;
-	}
-	if (read(fd, &buffer, 1) == -1)
-		return ((t_size){0, 0});
-	return (i);
-}
-
-void	free_map(char **map)
-{
-	int	i;
-
-	i = -1;
-	while (map[++i])
-		free(map[i]);
-	free(map);
-}
-
 int	main(int argc, char **argv)
 {
 	char	**map;
@@ -171,9 +142,8 @@ int	main(int argc, char **argv)
 	if (!map)
 		return (2);
 	if (!map_valid(map, size, &player))
-		return (99);
-	while (++i < size.y)
-		printf("%s", map[i]);
+		return (3);
+	startup(map, size);
 	free_map(map);
 	return (0);
 }
