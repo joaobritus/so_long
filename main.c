@@ -6,7 +6,7 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 17:11:00 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/05/10 10:22:34 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/05/10 16:46:10 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,7 +143,7 @@ int	main(int argc, char **argv)
 		return (2);
 	if (!map_valid(map, size, &player))
 		return (3);
-	startup(map, size);
+	startup(map, size, player);
 	free_map(map);
 	return (0);
 }

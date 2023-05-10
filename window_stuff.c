@@ -6,7 +6,7 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 16:33:42 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/05/10 10:42:10 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/05/10 17:17:21 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ int	keypress(int keysym, t_data *data)
 	if (keysym == XK_Escape)
 		destroy(data);
 	else if (keysym == XK_w)
-		printf("w\n");
+		move(data, 0, 1);
 	else if (keysym == XK_s)
-		printf("s\n");
+		move(data, 0, -1);
 	else if (keysym == XK_a)
-		printf("a\n");
+		move(data, -1, 0);
 	else if (keysym == XK_d)
-		printf("d\n");
+		move(data, 1, 0);
 	return (0);
 }
 
@@ -38,7 +38,7 @@ int	no_event(void)
 	return (0);
 }
 
-int	startup(char **map, t_size size)
+int	startup(char **map, t_size size, t_size player)
 {
 	t_data		data;
 
@@ -54,7 +54,8 @@ int	startup(char **map, t_size size)
 		return (1);
 	data.map = map;
 	data.size = size;
-	draw(&data, map);
+	data.player = player;
+	draw(&data, data.map);
 	mlx_loop_hook(data.mlx_ptr, no_event, &data);
 	mlx_hook(data.win_ptr, KeyPress, KeyPressMask, &keypress, &data);
 	mlx_hook(data.win_ptr, DestroyNotify, KeyPressMask, &destroy, &data);

@@ -6,7 +6,7 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 17:11:57 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/05/10 11:08:37 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/05/10 17:06:41 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,24 +39,14 @@ typedef struct s_sprites
 	void		*exit1;
 }				t_sprites;
 
-typedef struct s_img
-{
-	void		*mlx_img;
-	char		*addr;
-	int			bpp;
-	int			line_len;
-	int			endian;
-}				t_img;
-
 typedef struct s_data
 {
 	void		*mlx_ptr;
 	void		*win_ptr;
-	t_img		img;
 	t_sprites	*images;
 	char		**map;
 	t_size		size;
-	t_size		pos;
+	t_size		player;
 }				t_data;
 
 typedef struct s_rect
@@ -87,7 +77,7 @@ int				open_images(t_data *data);
 void			draw(t_data *data, char **map);
 int				keypress(int keysym, t_data *data);
 int				no_event(void);
-int				startup(char **map, t_size size);
+int				startup(char **map, t_size size, t_size player);
 void			choose_image(t_data *data, t_size pos, char **map);
 int				open_images(t_data *data);
 void			free_window(t_data *data);
@@ -95,5 +85,6 @@ void			free_image(t_data *data);
 int				free_all(t_data *data, int window, int images);
 int				check_map(char **map);
 void			reset_map(char **map);
+void			move(t_data *data, int x, int y);
 
 #endif
