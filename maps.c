@@ -6,7 +6,7 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 17:31:00 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/05/10 16:18:10 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/05/13 16:05:28 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,23 +35,23 @@ void	get_the_player(char **map, t_size size, t_size *player)
 
 void	flood_fill(char **map, t_size size, t_size player)
 {
-	if ((map[player.x][player.y] != '0' && map[player.x][player.y] != 'C'
-			&& map[player.x][player.y] != 'P' && map[player.x][player.y] != 'E')
+	if ((map[player.y][player.x] != '0' && map[player.y][player.x] != 'C'
+			&& map[player.y][player.x] != 'P' && map[player.y][player.x] != 'E')
 		|| player.x < 0 || player.y < 0 || player.x >= size.x
 		|| player.y >= size.y)
 		return ;
-	if (map[player.x][player.y] == 'E')
-		map[player.x][player.y] = 'e';
-	if (map[player.x][player.y] == 'P')
-		map[player.x][player.y] = 'p';
-	if (map[player.x][player.y] == 'C')
-		map[player.x][player.y] = 'c';
-	if (map[player.x][player.y] == '0')
-		map[player.x][player.y] = 'o';
-	flood_fill(map, size, (t_size){player.x + 1, player.y});
-	flood_fill(map, size, (t_size){player.x - 1, player.y});
-	flood_fill(map, size, (t_size){player.x, player.y + 1});
-	flood_fill(map, size, (t_size){player.x, player.y - 1});
+	if (map[player.y][player.x] == 'E')
+		map[player.y][player.x] = 'e';
+	if (map[player.y][player.x] == 'P')
+		map[player.y][player.x] = 'p';
+	if (map[player.y][player.x] == 'C')
+		map[player.y][player.x] = 'c';
+	if (map[player.y][player.x] == '0')
+		map[player.y][player.x] = 'o';
+	flood_fill(map, size, (t_size){player.y + 1, player.x});
+	flood_fill(map, size, (t_size){player.y - 1, player.x});
+	flood_fill(map, size, (t_size){player.y, player.x + 1});
+	flood_fill(map, size, (t_size){player.y, player.x - 1});
 }
 
 void	reset_map(char **map)
@@ -96,12 +96,12 @@ int	check_map(char **map)
 			if (map[y][x] == 'E')
 			{
 				printf("Error\ncan't reach exit\n");
-				return (1);
+				return (0);
 			}
 		}
 	}
 	reset_map(map);
-	return (0);
+	return (1);
 }
 
 t_size	map_size(int fd)
@@ -159,15 +159,13 @@ int	is_it_a_square(char **map, t_size size)
 int	map_valid(char **map, t_size size, t_size *player)
 {
 	get_the_player(map, size, player);
-	if ((exit_number(map, size) != 1))
+	if (exit_number(map, size) != 1 || player_number(map, size) != 1
+		|| collectible_number(map, size) < 1 || !is_it_a_square(map, size)
+		|| !walls(map, size))
 		return (0);
-	if ((player_number(map, size) != 1))
+	/*flood_fill(map, size, *player);
+	if (!check_map(map))
 		return (0);
-	if ((collectible_number(map, size) < 1) || (!is_it_a_square(map, size))
-		|| (!walls(map, size)))
-		return (0);
-	flood_fill(map, size, *player);
-	if (check_map(map))
-		return (0);
+	reset_map(map);*/
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 17:11:57 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/05/10 17:06:41 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/05/13 16:11:06 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,28 +35,24 @@ typedef struct s_sprites
 	void		*wall;
 	void		*floor;
 	void		*player;
+	void		*player2;
 	void		*collectible;
 	void		*exit1;
+	void		*exit2;
+	void		*enemy;
+	void		*enemy2;
 }				t_sprites;
 
 typedef struct s_data
 {
 	void		*mlx_ptr;
 	void		*win_ptr;
-	t_sprites	*images;
 	char		**map;
 	t_size		size;
 	t_size		player;
+	t_size		enemy;
+	t_sprites	*images;
 }				t_data;
-
-typedef struct s_rect
-{
-	int			x;
-	int			y;
-	int			width;
-	int			height;
-	int			color;
-}				t_rect;
 
 # define P 72
 # define MLX_ERROR 1
@@ -74,9 +70,8 @@ int				collectible_number(char **map, t_size size);
 int				player_number(char **map, t_size size);
 int				exit_number(char **map, t_size size);
 int				open_images(t_data *data);
-void			draw(t_data *data, char **map);
+int				draw(void *data);
 int				keypress(int keysym, t_data *data);
-int				no_event(void);
 int				startup(char **map, t_size size, t_size player);
 void			choose_image(t_data *data, t_size pos, char **map);
 int				open_images(t_data *data);
@@ -86,5 +81,6 @@ int				free_all(t_data *data, int window, int images);
 int				check_map(char **map);
 void			reset_map(char **map);
 void			move(t_data *data, int x, int y);
+void			enemy_stuff(t_data *data);
 
 #endif
