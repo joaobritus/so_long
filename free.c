@@ -6,7 +6,7 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 18:07:25 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/05/10 10:45:21 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/05/16 15:13:55 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	free_window(t_data *data)
 	free(data->mlx_ptr);
 	return ;
 }
-
 
 void	free_image(t_data *data)
 {

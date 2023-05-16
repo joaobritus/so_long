@@ -6,7 +6,7 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 17:11:57 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/05/13 16:11:06 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/05/16 16:27:46 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,9 @@ typedef struct s_data
 	char		**map;
 	t_size		size;
 	t_size		player;
+	t_size		exit;
 	t_size		enemy;
+	int			c_total;
 	t_sprites	*images;
 }				t_data;
 
@@ -62,6 +64,7 @@ char			**treatment(char *argv, t_size *size);
 t_size			map_size(int fd);
 void			free_map(char **map);
 void			get_the_player(char **map, t_size size, t_size *player);
+void			get_the_exit(t_data *data);
 void			flood_fill(char **map, t_size size, t_size player);
 int				walls(char **map, t_size size);
 int				is_it_a_square(char **map, t_size size);

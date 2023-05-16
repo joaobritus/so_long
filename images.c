@@ -6,7 +6,7 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 16:41:12 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/05/13 15:12:10 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/05/16 16:04:42 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,31 +47,33 @@ void	choose_image(t_data *data, t_size pos, char **map)
 {
 	if (map[pos.y][pos.x] == '0')
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-			data->images->floor, pos.y * P, pos.x * P);
+			data->images->floor, pos.x * P, pos.y * P);
 	else if (map[pos.y][pos.x] == '1')
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-			data->images->wall, pos.y * P, pos.x * P);
+			data->images->wall, pos.x * P, pos.y * P);
 	else if (map[pos.y][pos.x] == 'P')
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-			data->images->player, pos.y * P, pos.x * P);
+			data->images->player, pos.x * P, pos.y * P);
 	else if (map[pos.y][pos.x] == 'L')
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-			data->images->player2, pos.y * P, pos.x * P);
+			data->images->player2, pos.x * P, pos.y * P);
 	else if (map[pos.y][pos.x] == 'E')
+	{
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-			data->images->exit1, pos.y * P, pos.x * P);
+			data->images->exit1, pos.x * P, pos.y * P);
+	}
 	else if (map[pos.y][pos.x] == 'F')
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-			data->images->exit2, pos.y * P, pos.x * P);
+			data->images->exit2, pos.x * P, pos.y * P);
 	else if (map[pos.y][pos.x] == 'C')
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-			data->images->collectible, pos.y * P, pos.x * P);
+			data->images->collectible, pos.x * P, pos.y * P);
 	else if (map[pos.y][pos.x] == 'B')
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-			data->images->enemy, pos.y * P, pos.x * P);
+			data->images->enemy, pos.x * P, pos.y * P);
 	else if (map[pos.y][pos.x] == 'N')
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-			data->images->enemy2, pos.y * P, pos.x * P);
+			data->images->enemy2, pos.x * P, pos.y * P);
 	return ;
 }
 

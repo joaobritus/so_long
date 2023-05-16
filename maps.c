@@ -6,7 +6,7 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 17:31:00 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/05/13 16:05:28 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/05/16 16:28:46 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,27 @@ void	get_the_player(char **map, t_size size, t_size *player)
 			{
 				player->y = y;
 				player->x = x;
+			}
+		}
+	}
+}
+
+void	get_the_exit(t_data *data)
+{
+	int	y;
+	int	x;
+
+	y = -1;
+	x = -1;
+	while (++y < data->size.y)
+	{
+		x = -1;
+		while (++x < data->size.x)
+		{
+			if (data->map[y][x] == 'E')
+			{
+				data->exit.y = y;
+				data->exit.x = x;
 			}
 		}
 	}
