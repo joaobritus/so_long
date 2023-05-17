@@ -6,29 +6,29 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 12:35:24 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/05/13 16:06:01 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/05/17 14:47:40 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
 /*
-void	get_the_enemy(char **map, t_size size, t_size *enemy)
+void	get_the_enemy(t_data *data)
 {
 	int	y;
 	int	x;
 
 	y = -1;
 	x = -1;
-	while (++y < size.y)
+	while (++y < data->size.y)
 	{
 		x = -1;
-		while (++x < size.x)
+		while (++x < data->size.x)
 		{
-			if (map[y][x] == 'B')
+			if (data->map[y][x] == 'B')
 			{
-				player->y = y;
-				player->x = x;
+				data->player.y = y;
+				data->player.x = x;
 			}
 		}
 	}

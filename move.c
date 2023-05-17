@@ -6,7 +6,7 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 16:04:56 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/05/16 16:46:36 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/05/17 16:55:27 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,15 @@ void	move(t_data *data, int x, int y)
 				if (c_count == data->c_total)
 					data->map[data->exit.y][data->exit.x] = 'F';
 			}
+			else if (data->map[data->player.y + y][data->player.x + x] == 'F')
+				destroy(data);
 		}
 		data->map[data->player.y][data->player.x] = '0';
 		data->player.x += x;
 		data->player.y += y;
-		if (x == -1)
+		if ((x == -1) && (data->map[data->player.y][data->player.x] = '0'))
 			data->map[data->player.y][data->player.x] = 'L';
 		else
 			data->map[data->player.y][data->player.x] = 'P';
 	}
-	if (x == 1)
-		printf("d");
-	else if (x == -1)
-		printf("a");
-	else if (y == 1)
-		printf("w");
-	else if (y == -1)
-		printf("s");
 }

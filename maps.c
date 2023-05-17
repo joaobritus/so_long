@@ -6,7 +6,7 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 17:31:00 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/05/16 16:28:46 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/05/17 16:26:07 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,10 @@ void	get_the_exit(t_data *data)
 
 void	flood_fill(char **map, t_size size, t_size player)
 {
-	if ((map[player.y][player.x] != '0' && map[player.y][player.x] != 'C'
-			&& map[player.y][player.x] != 'P' && map[player.y][player.x] != 'E')
-		|| player.x < 0 || player.y < 0 || player.x >= size.x
-		|| player.y >= size.y)
+	if ((player.x < 0 || player.y < 0 || player.x >= size.x
+			|| player.y >= size.y) || (map[player.y][player.x] != '0'
+		&& map[player.y][player.x] != 'C' && map[player.y][player.x] != 'P'
+		&& map[player.y][player.x] != 'E'))
 		return ;
 	if (map[player.y][player.x] == 'E')
 		map[player.y][player.x] = 'e';
@@ -73,29 +73,6 @@ void	flood_fill(char **map, t_size size, t_size player)
 	flood_fill(map, size, (t_size){player.y - 1, player.x});
 	flood_fill(map, size, (t_size){player.y, player.x + 1});
 	flood_fill(map, size, (t_size){player.y, player.x - 1});
-}
-
-void	reset_map(char **map)
-{
-	int	x;
-	int	y;
-
-	y = -1;
-	while (map[++y])
-	{
-		x = -1;
-		while (map[y][++x])
-		{
-			if (map[y][x] == 'c')
-				map[y][x] = 'C';
-			if (map[y][x] == 'e')
-				map[y][x] = 'E';
-			if (map[y][x] == 'o')
-				map[y][x] = '0';
-			if (map[y][x] == 'p')
-				map[y][x] = 'P';
-		}
-	}
 }
 
 int	check_map(char **map)
@@ -123,6 +100,29 @@ int	check_map(char **map)
 	}
 	reset_map(map);
 	return (1);
+}
+
+void	reset_map(char **map)
+{
+	int	x;
+	int	y;
+
+	y = -1;
+	while (map[++y])
+	{
+		x = -1;
+		while (map[y][++x])
+		{
+			if (map[y][x] == 'c')
+				map[y][x] = 'C';
+			if (map[y][x] == 'e')
+				map[y][x] = 'E';
+			if (map[y][x] == 'o')
+				map[y][x] = '0';
+			if (map[y][x] == 'p')
+				map[y][x] = 'P';
+		}
+	}
 }
 
 t_size	map_size(int fd)

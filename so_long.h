@@ -6,7 +6,7 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 17:11:57 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/05/16 16:27:46 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/05/17 16:14:34 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ typedef struct s_sprites
 	void		*collectible;
 	void		*exit1;
 	void		*exit2;
+	void		*exit_player;
+	void		*exit_player2;
 	void		*enemy;
 	void		*enemy2;
 }				t_sprites;
@@ -85,5 +87,6 @@ int				check_map(char **map);
 void			reset_map(char **map);
 void			move(t_data *data, int x, int y);
 void			enemy_stuff(t_data *data);
+int				destroy(t_data *data);
 
 #endif

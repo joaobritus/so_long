@@ -6,7 +6,7 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 18:07:25 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/05/16 15:13:55 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/05/17 16:27:37 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,18 @@ void	free_image(t_data *data)
 		mlx_destroy_image(data->mlx_ptr, data->images->wall);
 	if (data->images->exit1)
 		mlx_destroy_image(data->mlx_ptr, data->images->exit1);
+	if (data->images->exit2)
+		mlx_destroy_image(data->mlx_ptr, data->images->exit2);
 	if (data->images->collectible)
 		mlx_destroy_image(data->mlx_ptr, data->images->collectible);
 	if (data->images->player)
 		mlx_destroy_image(data->mlx_ptr, data->images->player);
+	if (data->images->player2)
+		mlx_destroy_image(data->mlx_ptr, data->images->player2);
+	if (data->images->exit_player)
+		mlx_destroy_image(data->mlx_ptr, data->images->exit_player);
+	if (data->images->exit_player2)
+		mlx_destroy_image(data->mlx_ptr, data->images->exit_player2);
 	free (data->images);
 	return ;
 }
