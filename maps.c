@@ -6,7 +6,7 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 17:31:00 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/05/17 16:26:07 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/05/23 16:05:18 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,33 +75,6 @@ void	flood_fill(char **map, t_size size, t_size player)
 	flood_fill(map, size, (t_size){player.y, player.x - 1});
 }
 
-int	check_map(char **map)
-{
-	int	x;
-	int	y;
-
-	y = -1;
-	while (map[++y])
-	{
-		x = -1;
-		while (map[y][++x])
-		{
-			if (map[y][x] == 'C')
-			{
-				printf("Error\ncan't reach collectible\n");
-				return (1);
-			}
-			if (map[y][x] == 'E')
-			{
-				printf("Error\ncan't reach exit\n");
-				return (0);
-			}
-		}
-	}
-	reset_map(map);
-	return (1);
-}
-
 void	reset_map(char **map)
 {
 	int	x;
@@ -123,6 +96,33 @@ void	reset_map(char **map)
 				map[y][x] = 'P';
 		}
 	}
+}
+
+int	check_map(char **map)
+{
+	int	x;
+	int	y;
+
+	y = -1;
+	while (map[++y])
+	{
+		x = -1;
+		while (map[y][++x])
+		{
+			if (map[y][x] == 'C')
+			{
+				printf("Error\ncan't reach collectible\n");
+				return (0);
+			}
+			if (map[y][x] == 'E')
+			{
+				printf("Error\ncan't reach exit\n");
+				return (0);
+			}
+		}
+	}
+	reset_map(map);
+	return (1);
 }
 
 t_size	map_size(int fd)
@@ -184,9 +184,9 @@ int	map_valid(char **map, t_size size, t_size *player)
 		|| collectible_number(map, size) < 1 || !is_it_a_square(map, size)
 		|| !walls(map, size))
 		return (0);
-	/*flood_fill(map, size, *player);
+	flood_fill(map, size, *player);
 	if (!check_map(map))
 		return (0);
-	reset_map(map);*/
+	reset_map(map);
 	return (1);
 }

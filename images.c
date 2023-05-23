@@ -6,7 +6,7 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 16:41:12 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/05/17 16:13:49 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/05/23 15:09:50 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ int	open_images(t_data *data)
 			"./images/exit.xpm", &s, &s);
 	image->exit2 = mlx_xpm_file_to_image(data->mlx_ptr,
 			"./images/exit2.xpm", &s, &s);
-	image->exit2 = mlx_xpm_file_to_image(data->mlx_ptr,
+	image->exit_player = mlx_xpm_file_to_image(data->mlx_ptr,
 			"./images/exit_player.xpm", &s, &s);
-	image->exit2 = mlx_xpm_file_to_image(data->mlx_ptr,
+	image->exit_player2 = mlx_xpm_file_to_image(data->mlx_ptr,
 			"./images/exit_player2.xpm", &s, &s);
 	image->player = mlx_xpm_file_to_image(data->mlx_ptr,
 			"./images/player.xpm", &s, &s);
@@ -62,10 +62,8 @@ void	choose_image(t_data *data, t_size pos, char **map)
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
 			data->images->player2, pos.x * P, pos.y * P);
 	else if (map[pos.y][pos.x] == 'E')
-	{
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
 			data->images->exit1, pos.x * P, pos.y * P);
-	}
 	else if (map[pos.y][pos.x] == 'F')
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
 			data->images->exit2, pos.x * P, pos.y * P);

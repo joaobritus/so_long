@@ -6,7 +6,7 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 16:33:42 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/05/17 14:54:38 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/05/23 15:27:09 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ int	keypress(int keysym, t_data *data)
 	if (keysym == XK_Escape)
 		destroy(data);
 	else if (keysym == XK_w)
-		move(data, 0, 1);
-	else if (keysym == XK_s)
 		move(data, 0, -1);
+	else if (keysym == XK_s)
+		move(data, 0, 1);
 	else if (keysym == XK_a)
 		move(data, -1, 0);
 	else if (keysym == XK_d)
