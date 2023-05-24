@@ -6,7 +6,7 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 17:31:00 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/05/23 16:05:18 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/05/24 15:18:04 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,10 +69,10 @@ void	flood_fill(char **map, t_size size, t_size player)
 		map[player.y][player.x] = 'c';
 	if (map[player.y][player.x] == '0')
 		map[player.y][player.x] = 'o';
-	flood_fill(map, size, (t_size){player.y + 1, player.x});
-	flood_fill(map, size, (t_size){player.y - 1, player.x});
-	flood_fill(map, size, (t_size){player.y, player.x + 1});
-	flood_fill(map, size, (t_size){player.y, player.x - 1});
+	flood_fill(map, size, (t_size){player.x + 1, player.y});
+	flood_fill(map, size, (t_size){player.x - 1, player.y});
+	flood_fill(map, size, (t_size){player.x, player.y + 1});
+	flood_fill(map, size, (t_size){player.x, player.y - 1});
 }
 
 void	reset_map(char **map)
