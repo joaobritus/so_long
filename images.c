@@ -6,7 +6,7 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 16:41:12 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/05/24 15:16:33 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/05/24 15:59:10 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,6 @@ int	open_images(t_data *data)
 			"./images/player2.xpm", &s, &s);
 	image->collectible = mlx_xpm_file_to_image(data->mlx_ptr,
 			"./images/collectible.xpm", &s, &s);
-	/* image->enemy = mlx_xpm_file_to_image(data->mlx_ptr,
-			"./images/enemy.xpm", &s, &s);
-	image->enemy2 = mlx_xpm_file_to_image(data->mlx_ptr,
-			"./images/enemy2.xpm", &s, &s); */
 	data->images = image;
 	return (1);
 }

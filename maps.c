@@ -6,7 +6,7 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 17:31:00 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/05/24 15:18:04 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/05/24 16:17:20 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -178,7 +178,7 @@ int	is_it_a_square(char **map, t_size size)
 }
 
 int	map_valid(char **map, t_size size, t_size *player)
-{
+{	
 	get_the_player(map, size, player);
 	if (exit_number(map, size) != 1 || player_number(map, size) != 1
 		|| collectible_number(map, size) < 1 || !is_it_a_square(map, size)
