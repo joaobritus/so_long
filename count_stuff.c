@@ -6,7 +6,7 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 18:18:14 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/05/08 16:02:38 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/05/25 15:47:57 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	player_number(char **map, t_size size)
 		x = -1;
 		while (++x < size.x)
 		{
-			if (map[y][x] == 'C')
+			if (map[y][x] == 'P')
 				p_number++;
 		}
 	}

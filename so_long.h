@@ -6,7 +6,7 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 17:11:57 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/05/24 15:16:55 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/05/25 15:59:10 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,6 @@ int				free_all(t_data *data, int window, int images);
 int				check_map(char **map);
 void			reset_map(char **map);
 void			move(t_data *data, int x, int y);
-void			enemy_stuff(t_data *data);
 int				destroy(t_data *data);
 
 #endif
