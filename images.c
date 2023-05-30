@@ -6,7 +6,7 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 16:41:12 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/05/24 15:59:10 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/05/30 14:43:47 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,12 @@ void	choose_image(t_data *data, t_size pos, char **map)
 	else if (map[pos.y][pos.x] == 'X')
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
 			data->images->exit_player2, pos.x * P, pos.y * P);
-	else if (map[pos.y][pos.x] == 'C')
+	return ;
+}
+
+void	choose_image2(t_data *data, t_size pos, char **map)
+{
+	if (map[pos.y][pos.x] == 'C')
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
 			data->images->collectible, pos.x * P, pos.y * P);
 	else if (map[pos.y][pos.x] == 'B')
@@ -91,7 +96,10 @@ int	draw(void *data)
 	{
 		x = -1;
 		while (((t_data *)data)->map[y][++x])
+		{
 			choose_image(data, (t_size){x, y}, ((t_data *)data)->map);
+			choose_image2(data, (t_size){x, y}, ((t_data *)data)->map);
+		}
 	}
 	return (1);
 }

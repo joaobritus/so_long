@@ -6,7 +6,7 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 17:31:00 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/05/25 16:05:30 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/05/30 14:26:50 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int	map_valid(char **map, t_size size, t_size *player)
 	if (exit_number(map, size) != 1 || player_number(map, size) != 1
 		|| collectible_number(map, size) < 1 || !is_it_a_square(map, size)
 		|| !walls(map, size))
-		return (printf("Error\nSomething is wrong"));
+		return (0);
 	flood_fill(map, size, *player);
 	if (!check_map(map))
 		return (0);
