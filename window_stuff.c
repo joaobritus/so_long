@@ -6,7 +6,7 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 16:33:42 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/05/30 16:16:50 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/05/30 16:58:09 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	destroy(t_data *data)
 {
-	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+	mlx_loop_end(data->mlx_ptr);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 18:07:25 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/05/25 16:50:01 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/05/30 17:01:44 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	free_map(char **map)
 
 void	free_window(t_data *data)
 {
+	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 	mlx_destroy_display(data->mlx_ptr);
 	free(data->mlx_ptr);
 	return ;
@@ -59,5 +60,6 @@ int	free_all(t_data *data, int window, int images)
 		free_image(data);
 	if (window)
 		free_window(data);
+	free(data);
 	return (1);
 }
