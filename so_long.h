@@ -6,7 +6,7 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 17:11:57 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/05/31 11:03:25 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/05/31 11:30:18 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,5 +86,8 @@ void			move(t_data *data, int x, int y);
 int				destroy(t_data *data);
 void			choose_image2(t_data *data, t_size pos, char **map);
 int				open_images2(t_data *data);
+void			move1(t_data *data, int x, int y, int c_count);
+void			move2(t_data *data, int x, int y);
+void			move3(t_data *data, int x, int y);
 
 #endif

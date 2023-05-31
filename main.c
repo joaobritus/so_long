@@ -6,7 +6,7 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 17:11:00 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/05/30 14:28:08 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/05/31 11:42:20 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@
 
 char	**treatment(char *argv, t_size *size)
 {
-	int			y;
-	int			x;
-	int			fd;
-	char		**map;
+	int		y;
+	int		x;
+	int		fd;
+	char	**map;
 
 	fd = open(argv, O_RDONLY);
 	if (fd == -1)
@@ -67,7 +67,7 @@ int	main(int argc, char **argv)
 	if (!map)
 		return (2);
 	if (!map_valid(map, size, &player))
-		return (printf("Error\nMap is not valid"));
+		return (0);
 	startup(map, size, player);
 	free_map(map);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 17:31:00 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/05/30 14:26:50 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/05/31 11:38:51 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,13 +67,19 @@ int	is_it_a_square(char **map, t_size size)
 int	map_valid(char **map, t_size size, t_size *player)
 {	
 	get_the_player(map, size, player);
-	if (exit_number(map, size) != 1 || player_number(map, size) != 1
-		|| collectible_number(map, size) < 1 || !is_it_a_square(map, size)
-		|| !walls(map, size))
-		return (0);
+	if (exit_number(map, size) != 1)
+		return (printf("Error/n There has to be only one exit"));
+	if (player_number(map, size) != 1)
+		return (printf("Error/n There has to be only one player"));
+	if (collectible_number(map, size) < 1)
+		return (printf("Error/n There has to be at least one collectible"));
+	if (!is_it_a_square(map, size))
+		return (printf("Error/n Map is not a square"));
+	if (!walls(map, size))
+		return (printf("Error/n Map is not sorrounded by walls"));
 	flood_fill(map, size, *player);
 	if (!check_map(map))
-		return (0);
+		return (1);
 	reset_map(map);
-	return (1);
+	return (0);
 }
