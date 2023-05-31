@@ -6,7 +6,7 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 16:41:12 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/05/30 16:44:39 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/05/31 11:03:00 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,16 @@ int	open_images(t_data *data)
 	return (1);
 }
 
+int	open_images2(t_data *data)
+{
+	int			s;
+
+	s = P;
+	data->images->collectible = mlx_xpm_file_to_image(data->mlx_ptr,
+			"./images/collectible.xpm", &s, &s);
+	return (1);
+}
+
 void	choose_image(t_data *data, t_size pos, char **map)
 {
 	if (map[pos.y][pos.x] == '0')
@@ -69,7 +79,12 @@ void	choose_image(t_data *data, t_size pos, char **map)
 	else if (map[pos.y][pos.x] == 'X')
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
 			data->images->exit_player2, pos.x * P, pos.y * P);
-	else if (map[pos.y][pos.x] == 'C')
+	return ;
+}
+
+void	choose_image2(t_data *data, t_size pos, char **map)
+{
+	if (map[pos.y][pos.x] == 'C')
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
 			data->images->collectible, pos.x * P, pos.y * P);
 	return ;
@@ -85,7 +100,10 @@ int	draw(void *data)
 	{
 		x = -1;
 		while (((t_data *)data)->map[y][++x])
+		{
 			choose_image(data, (t_size){x, y}, ((t_data *)data)->map);
+			choose_image2(data, (t_size){x, y}, ((t_data *)data)->map);
+		}
 	}
 	return (1);
 }
