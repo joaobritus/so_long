@@ -6,7 +6,7 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 17:11:00 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/05/31 11:42:20 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/05/31 14:22:38 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,11 @@
 #include <X11/X.h>
 #include <X11/keysym.h>
 
-#define WINDOW_WIDTH 600
-#define WINDOW_HEIGHT 300
-
 #define MLX_ERROR 1
-
-#define RED_PIXEL 0xFF0000
-#define GREEN_PIXEL 0xFF00
-#define WHITE_PIXEL 0xFFFFFF
 
 char	**treatment(char *argv, t_size *size)
 {
 	int		y;
-	int		x;
 	int		fd;
 	char	**map;
 
@@ -46,7 +38,6 @@ char	**treatment(char *argv, t_size *size)
 	close(fd);
 	fd = open(argv, O_RDONLY);
 	y = -1;
-	x = 0;
 	while (++y < size->y)
 		map[y] = get_next_line(fd);
 	map[y] = 0;
@@ -66,7 +57,7 @@ int	main(int argc, char **argv)
 	map = treatment(argv[1], &size);
 	if (!map)
 		return (2);
-	if (!map_valid(map, size, &player))
+	if (map_valid(map, size, &player))
 		return (0);
 	startup(map, size, player);
 	free_map(map);

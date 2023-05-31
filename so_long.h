@@ -6,7 +6,7 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 17:11:57 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/05/31 11:30:18 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/05/31 15:19:47 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void			get_the_player(char **map, t_size size, t_size *player);
 void			get_the_exit(t_data *data);
 void			flood_fill(char **map, t_size size, t_size player);
 int				walls(char **map, t_size size);
-int				is_it_a_square(char **map, t_size size);
+int				is_it_a_square(char **map);
 int				map_valid(char **map, t_size size, t_size *player);
 int				collectible_number(char **map, t_size size);
 int				player_number(char **map, t_size size);
