@@ -6,7 +6,7 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 16:33:42 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/05/31 17:20:42 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/06/04 16:03:13 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,10 @@ int	startup(char **map, t_size size, t_size player)
 	get_the_exit(data);
 	data->c_total = collectible_number(map, size);
 	if (size.y * P > 1920 || size.x * P > 1080)
+	{
+		free(data);
 		return (ft_printf("Error\nMap is too big to fit in window.\n"));
+	}
 	data->mlx_ptr = mlx_init();
 	if (!data->mlx_ptr)
 		return (1);
