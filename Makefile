@@ -1,7 +1,7 @@
 NAME =			so_long
 LIB =			so_long.h
-LIBFT_DIR =		../libft_new
-LIBFT =			../libft_new/libft.a
+LIBFT_DIR =		./libft_new
+LIBFT =			./libft_new/libft.a
 LIBMLX_DIR =	./mlx_linux
 MLX_INCLUDE = 	-Imlx_linux
 SRC =			main.c maps.c count_stuff.c window_stuff.c images.c free.c move.c more_maps.c

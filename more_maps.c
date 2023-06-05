@@ -6,7 +6,7 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 16:04:41 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/06/04 16:06:59 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/06/05 11:45:02 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,12 +111,12 @@ int	check_map(char **map)
 		{
 			if (map[y][x] == 'C')
 			{
-				printf("Error\ncan't reach collectible\n");
+				ft_printf("Error\ncan't reach collectible\n");
 				return (0);
 			}
 			if (map[y][x] == 'E')
 			{
-				printf("Error\ncan't reach exit\n");
+				ft_printf("Error\ncan't reach exit\n");
 				return (0);
 			}
 		}
