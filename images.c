@@ -6,7 +6,7 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 16:41:12 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/05/31 14:19:23 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/06/05 14:17:38 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,21 @@ int	open_images(t_data *data)
 	if (!image)
 		return (0);
 	image->floor = mlx_xpm_file_to_image(data->mlx_ptr,
-			"./images/floor.xpm", &s, &s);
+			"./textures/floor.xpm", &s, &s);
 	image->wall = mlx_xpm_file_to_image(data->mlx_ptr,
-			"./images/wall.xpm", &s, &s);
+			"./textures/wall.xpm", &s, &s);
 	image->exit1 = mlx_xpm_file_to_image(data->mlx_ptr,
-			"./images/exit.xpm", &s, &s);
+			"./textures/exit.xpm", &s, &s);
 	image->exit2 = mlx_xpm_file_to_image(data->mlx_ptr,
-			"./images/exit2.xpm", &s, &s);
+			"./textures/exit2.xpm", &s, &s);
 	image->exit_player = mlx_xpm_file_to_image(data->mlx_ptr,
-			"./images/exit_player.xpm", &s, &s);
+			"./textures/exit_player.xpm", &s, &s);
 	image->exit_player2 = mlx_xpm_file_to_image(data->mlx_ptr,
-			"./images/exit_player2.xpm", &s, &s);
+			"./textures/exit_player2.xpm", &s, &s);
 	image->player = mlx_xpm_file_to_image(data->mlx_ptr,
-			"./images/player.xpm", &s, &s);
+			"./textures/player.xpm", &s, &s);
 	image->player2 = mlx_xpm_file_to_image(data->mlx_ptr,
-			"./images/player2.xpm", &s, &s);
+			"./textures/player2.xpm", &s, &s);
 	data->images = image;
 	return (1);
 }
@@ -47,7 +47,7 @@ int	open_images2(t_data *data)
 
 	s = P;
 	data->images->collectible = mlx_xpm_file_to_image(data->mlx_ptr,
-			"./images/collectible.xpm", &s, &s);
+			"./textures/collectible.xpm", &s, &s);
 	return (1);
 }
 
