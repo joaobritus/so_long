@@ -6,7 +6,7 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 16:04:56 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/05/31 11:30:28 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/06/05 16:07:41 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,11 @@
 void	move(t_data *data, int x, int y)
 {
 	static int	c_count;
+	int			yy;
+	int			xx;
 
+	yy = data->player.y;
+	xx = data->player.x;
 	if (data->map[data->player.y + y][data->player.x + x] == '1')
 		return ;
 	if (data->map[data->player.y + y][data->player.x + x] == 'C')
@@ -39,6 +43,17 @@ void	move(t_data *data, int x, int y)
 		data->map[data->player.y][data->player.x] = '0';
 	data->player.y += y;
 	data->player.x += x;
+}
+
+void	count_moves(t_data *data, int yy, int xx)
+{
+	static int	move_count;
+
+	if (yy != data->player.y || xx != data->player.x)
+	{
+		move_count++;
+		printf("number of moves: %d\n", move_count);
+	}
 }
 
 void	move1(t_data *data, int x, int y, int c_count)

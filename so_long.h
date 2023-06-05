@@ -6,14 +6,14 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 17:11:57 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/06/05 14:03:19 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/06/05 16:04:57 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "../libft_new/libft.h"
+# include "./libft_new/libft.h"
 # include "./mlx_linux/mlx.h"
 # include <X11/keysym.h>
 # include <fcntl.h>
@@ -92,5 +92,6 @@ void			move3(t_data *data, int x, int y);
 char			**get_size(char *argv, t_size *size);
 void			ineedlesslines(t_data *data, char **map, t_size size,
 					t_size player);
+void			count_moves(t_data *data, int yy, int xx);
 
 #endif
