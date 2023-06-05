@@ -6,7 +6,7 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 16:33:42 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/06/04 16:03:13 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/06/05 14:03:00 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,21 @@ int	keypress(int keysym, t_data *data)
 	return (0);
 }
 
+void	ineedlesslines(t_data *data, char **map, t_size size, t_size player)
+{
+	data->map = map;
+	data->size = size;
+	data->player = player;
+	data->c_total = collectible_number(map, size);
+}
+
 int	startup(char **map, t_size size, t_size player)
 {
 	t_data	*data;
 
 	data = (t_data *)ft_calloc(1, sizeof(t_data));
-	data->map = map;
-	data->size = size;
-	data->player = player;
+	ineedlesslines(data, map, size, player);
 	get_the_exit(data);
-	data->c_total = collectible_number(map, size);
 	if (size.y * P > 1920 || size.x * P > 1080)
 	{
 		free(data);

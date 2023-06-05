@@ -6,7 +6,7 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 17:11:57 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/06/05 13:24:29 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/06/05 14:03:19 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,7 @@ void			move1(t_data *data, int x, int y, int c_count);
 void			move2(t_data *data, int x, int y);
 void			move3(t_data *data, int x, int y);
 char			**get_size(char *argv, t_size *size);
+void			ineedlesslines(t_data *data, char **map, t_size size,
+					t_size player);
 
 #endif
