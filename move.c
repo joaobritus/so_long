@@ -6,7 +6,7 @@
 /*   By: jaragao- <jaragao-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 16:04:56 by jaragao-          #+#    #+#             */
-/*   Updated: 2023/06/05 16:07:41 by jaragao-         ###   ########.fr       */
+/*   Updated: 2023/06/10 15:11:33 by jaragao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,7 @@ void	move(t_data *data, int x, int y)
 		c_count++;
 		move1(data, x, y, c_count);
 	}
-	else if (data->map[data->player.y + y][data->player.x + x] == 'F')
-		destroy(data);
-	else if (data->map[data->player.y + y][data->player.x + x] == 'E')
-		move2(data, x, y);
-	else if (data->map[data->player.y + y][data->player.x + x] == '0')
-		move3(data, x, y);
+	more_moves(data, x, y);
 	if (data->map[data->player.y][data->player.x] == 'Z'
 		|| data->map[data->player.y][data->player.x] == 'X')
 	{
@@ -43,6 +38,7 @@ void	move(t_data *data, int x, int y)
 		data->map[data->player.y][data->player.x] = '0';
 	data->player.y += y;
 	data->player.x += x;
+	count_moves(data, yy, xx);
 }
 
 void	count_moves(t_data *data, int yy, int xx)
